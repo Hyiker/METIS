@@ -54,7 +54,7 @@ if(${CMAKE_C_COMPILER_ID} STREQUAL "Intel")
   #  set(GK_COPTIONS "${GK_COPTIONS} -fast")
 endif()
 
-# Add support for MacOS items 
+# Add support for MacOS items
 if(APPLE)
   set(GK_COPTIONS "${GK_COPTIONS} -DMACOS")
 endif(APPLE)
@@ -74,8 +74,6 @@ endif(OPENMP)
 if(GDB)
   set(GK_COPTS "${GK_COPTS} -g")
   set(GK_COPTIONS "${GK_COPTIONS} -Werror")
-else()
-  set(GK_COPTS "-O3")
 endif(GDB)
 
 
@@ -131,7 +129,7 @@ if(MSVC)
   if("${HAVE_THREADLOCALSTORAGE}" MATCHES "^${HAVE_THREADLOCALSTORAGE}$")
     try_compile(HAVE_THREADLOCALSTORAGE
       ${CMAKE_BINARY_DIR}
-      ${CMAKE_SOURCE_DIR}/conf/check_thread_storage.c)
+      ${CMAKE_CURRENT_SOURCE_DIR}/conf/check_thread_storage.c)
     if(HAVE_THREADLOCALSTORAGE)
       message(STATUS "checking for thread-local storage - found")
     else()
